@@ -39,9 +39,7 @@ class HTTPResponse(object):
 
 class HTTPClient(object):
     def get_host_port(self,url):
-        parsed = urllib.parse.urlparse(url)
-        # print(parsed)
-        host_port = parsed.port
+        host_port = urllib.parse.urlparse(url).port
 
         if host_port == None:
             host_port = 80
@@ -69,7 +67,6 @@ class HTTPClient(object):
         # response_elements.pop()
         headers = response_elements[:last]
         print ('\n'.join(headers))
-        # return headers
 
     def get_body(self, data):
         response_elements = data.split('\r\n')
